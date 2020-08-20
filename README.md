@@ -29,9 +29,9 @@ chmod u+x web-app.sh
 
 ## TODOs
 
-See `create-screenshots/createThumbnails.js`
+See `TODO`s in `create-screenshots/createThumbnails.js`
 
 ## Acknowledgements
 
-web-app based upon https://travishorn.com/creating-a-photo-gallery-with-vue-css-grid-3e0a3dd25285
+Web app based upon [Travis Horn's article](https://travishorn.com/creating-a-photo-gallery-with-vue-css-grid-3e0a3dd25285).
 
