@@ -1,0 +1,25 @@
+{
+  "name": "create-screenshots",
+  "version": "1.0.0",
+  "description": "none",
+  "dependencies": {
+    "bluebird": "^3.7.2",
+    "http-server": "^0.12.3",
+    "line-reader": "^0.4.0",
+    "lodash": "^4.17.20",
+    "puppeteer": "^5.2.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "none"
+  },
+  "repository": {
+    "type": "git",
+    "url": "none"
+  },
+  "keywords": [
+    "none"
+  ],
+  "author": "none",
+  "license": "UNLICENSED"
+}
