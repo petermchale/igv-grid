@@ -1,9 +1,8 @@
-## Install 
+## Set up
 
 ```
-# TODO: install npm
-chmod u+x install.sh
-./install.sh 
+chmod u+x set-up.sh
+./set-up.sh 
 ```
 
 ## Customize 
@@ -17,13 +16,11 @@ Set `port` and `number_thumbnails` (number of thumbnails per call set) in `creat
 1. Create thumbnails (this may take some time):
 
 ```
-chmod u+x create-screenshots.sh
 ./create-screenshots.sh
 ```
 
 2. Visualize thumbnails in web app:
 ```
-chmod u+x web-app.sh
 ./web-app.sh
 ```
 
