@@ -9,3 +9,7 @@ node_modules
 web-app/public/igv
 node-*
 assets
+
+tracks.json
+reference.json
+callSets.json
