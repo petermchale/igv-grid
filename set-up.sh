@@ -8,7 +8,7 @@ node_version="v12.18.3"
 
 root_directory="$PWD" 
 
-wget "https://nodejs.org/dist/${node_version}/node-${node_version}-linux-x64.tar.xz"
+curl --remote-name "https://nodejs.org/dist/${node_version}/node-${node_version}-linux-x64.tar.xz"
 tar -xf "node-${node_version}-linux-x64.tar.xz"
 rm "node-${node_version}-linux-x64.tar.xz"
 PATH="${root_directory}/node-${node_version}-linux-x64/bin:$PATH"
@@ -27,3 +27,9 @@ expand_path callSets.json
 
 cd "${root_directory}/create-screenshots" && npm install
 cd "${root_directory}/web-app" && npm install
+
+set +x 
+echo "***********************" 
+echo "add the following to your PATH environment variable in ~/.bash_profile:"
+echo "${root_directory}/node-${node_version}-linux-x64/bin"
+echo "***********************" 

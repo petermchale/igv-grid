@@ -4,13 +4,13 @@
 		"labelForVisualization": "True positives",
     "filenameSuffix": "vcf",
     "filenameStem": "tp-call",
-		"directory": "{{ROOT_DIRECTORY}}/data"
+		"directory": "/Users/petermchale/igv-grid/data"
   },
   { 
     "labelForImageFilename": "fp",
 		"labelForVisualization": "False positives",
     "filenameSuffix": "vcf",
     "filenameStem": "fp",
-    "directory": "{{ROOT_DIRECTORY}}/data"
+    "directory": "/Users/petermchale/igv-grid/data"
   }
 ]
