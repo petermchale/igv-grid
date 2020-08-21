@@ -6,6 +6,6 @@
     "name": "short-read alignments", 
     "url": "short-read-alignments.cram", 
     "indexURL": "short-read-alignments.cram.crai",
-    "directory": "/Users/petermchale/igv-grid-data"
+    "directory": "{{ROOT_DIRECTORY}}/data"
   }
 ]

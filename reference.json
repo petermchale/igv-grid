@@ -2,5 +2,5 @@
   "fastaURL": "GRCh38_full_analysis_set_plus_decoy_hla.fa",
   "indexURL": "GRCh38_full_analysis_set_plus_decoy_hla.fa.fai",
 	"chromosomeSizes": "GRCh38_full_analysis_set_plus_decoy_hla.genome",
-  "directory": "/Users/petermchale/igv-grid-data"
+  "directory": "{{ROOT_DIRECTORY}}/data"
 }

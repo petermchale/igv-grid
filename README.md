@@ -6,9 +6,7 @@
 
 ## Customize 
 
-Alter `reference.json`, `tracks.json` and `callSets.json` to suit your needs. 
-
-Set `port` and `number_thumbnails` (number of thumbnails per call set) in `create-screenshots.sh`.
+Alter `reference.json`, `tracks.json` and `callSets.json` to suit your needs, and customize `port` and `number_thumbnails` (number of thumbnails per call set) in `create-screenshots.sh`.
 
 ## Run  
 

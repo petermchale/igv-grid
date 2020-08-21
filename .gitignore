@@ -8,3 +8,4 @@ http-server.*
 node_modules
 web-app/public/igv
 assets
+node-*

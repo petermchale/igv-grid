@@ -6,20 +6,24 @@ PS4='+ (${BASH_SOURCE[0]##*/} @ ${LINENO}): ${FUNCNAME[0]:+${FUNCNAME[0]}(): }'
 
 node_version="v12.18.3"
 
-mkdir node
-cd node
+root_directory="$PWD" 
+
 wget "https://nodejs.org/dist/${node_version}/node-${node_version}-linux-x64.tar.xz"
 tar -xf "node-${node_version}-linux-x64.tar.xz"
-PATH="$PWD/node-${node_version}-linux-x64/bin:$PATH"
-
-which npm 
-which node 
-exit 1 
+rm "node-${node_version}-linux-x64.tar.xz"
+PATH="${root_directory}/node-${node_version}-linux-x64/bin:$PATH"
 
 pip install cyvcf2
 
-cd create-screenshots
-npm install 
-cd ../web-app 
-npm install 
-cd ..
+expand_path () {
+  local filename_=$1
+  sed "s,{{ROOT_DIRECTORY}},${root_directory},g" ${filename_} > ${filename_}.tmp
+  mv ${filename_}.tmp ${filename_}
+}
+
+expand_path tracks.json
+expand_path reference.json
+expand_path callSets.json
+
+cd "${root_directory}/create-screenshots" && npm install
+cd "${root_directory}/web-app" && npm install
