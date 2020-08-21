@@ -23,6 +23,10 @@ Set `port` and `number_thumbnails` (number of thumbnails per call set) in `creat
 ```
 ./web-app.sh
 ```
+Then, from your local computer, do (change username and host):
+```
+ssh -N -L localhost:8080:localhost:8080 u6018199@hunnicutt.chpc.utah.edu
+```
 
 ## TODOs
 

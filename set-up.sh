@@ -11,6 +11,7 @@ cd $HOME/node
 wget https://nodejs.org/dist/v12.18.3/node-v12.18.3-linux-x64.tar.xz
 tar -xf node-v12.18.3-linux-x64.tar.xz
 ln -s $PWD/node-v12.18.3-linux-x64/bin/node $HOME/bin/node
+ln -s $PWD/node-v12.18.3-linux-x64/bin/npm $HOME/bin/npm
 
 pip install cyvcf2
 
