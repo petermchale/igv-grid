@@ -4,7 +4,6 @@ const Promise = require('bluebird')
 const fs = require('fs')
 const path = require('path')
 const { cloneDeep } = require('lodash')
-// const cloneDeep = require('lodash/clonedeep')
 
 const webApp_assets_directory_absolute = process.argv[3]
 const thumbnails_directory = process.argv[4]
