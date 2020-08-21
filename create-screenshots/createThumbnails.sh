@@ -112,8 +112,6 @@ done
 # use node version 10 to avoid http-server error: 
 # https://github.com/http-party/http-server/issues/537
 node node_modules/http-server/bin/${server} -p ${port} > ${server}.log 2> ${server}.err &
-which node 
-exit 1
 
 url="http://127.0.0.1:${port}/igv.html"
 node createThumbnails.js \

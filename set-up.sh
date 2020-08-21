@@ -6,7 +6,7 @@ PS4='+ (${BASH_SOURCE[0]##*/} @ ${LINENO}): ${FUNCNAME[0]:+${FUNCNAME[0]}(): }'
 
 root_directory="$PWD" 
 
-# cluster-specific code
+# cluster-specific code block
 node_version="v12.18.3"
 curl --remote-name "https://nodejs.org/dist/${node_version}/node-${node_version}-linux-x64.tar.xz"
 tar -xf "node-${node_version}-linux-x64.tar.xz"
@@ -27,9 +27,9 @@ expand_path callSets
 cd "${root_directory}/create-screenshots" && npm install
 cd "${root_directory}/web-app" && npm install
 
-# cluster-specific code
+# cluster-specific code block
 set +x 
 echo "***********************" 
-echo "add the following to your PATH environment variable in ~/.bash_profile:"
+echo "add the following to your PATH environment variable:"
 echo "${root_directory}/node-${node_version}-linux-x64/bin"
 echo "***********************" 
