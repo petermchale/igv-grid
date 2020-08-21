@@ -26,6 +26,7 @@ parent_directory="$(dirname "${script_directory}")"
 webApp_assets_directory_absolute="${parent_directory}/web-app${webApp_assets_directory_relative}" 
 webApp_igv_directory_absolute="${parent_directory}/web-app/public/${webApp_igv_directory_relative}" 
 createScreenshots_assets_directory_absolute="${parent_directory}/create-screenshots${createScreenshots_assets_directory_relative}" 
+mkdir --parents ${createScreenshots_assets_directory_absolute}
 
 thumbnails_directory="thumbnails"
 
