@@ -6,7 +6,13 @@
 
 ## Customize 
 
-Alter `reference.json`, `tracks.json` and `callSets.json` to suit your needs, and customize `port` and `number_thumbnails` (number of thumbnails per call set) in `create-screenshots.sh`.
+Drop a reference genome into `data` and change the corresponding entries in `reference.json`. 
+
+Alter `tracks.json` and drop corresponding files into `data`. 
+
+Alter `callSets.json` and drop corresponding files into `data`. 
+
+Customize `port` and `number_thumbnails` (number of thumbnails per call set) in `create-screenshots.sh`.
 
 ## Run  
 
