@@ -117,7 +117,7 @@ function change_path (oldPath) {
 
 async function createThumbnails () { 
   thumbnails = await createThumbnailsIndex() 
-  for (const callset of thumbnails) {
+  thumbnails.forEach((callset, callsetIndex) => {
     const oldTracks = callset.tracks
     const newTracks = []
     for (const track of oldTracks) {
@@ -125,11 +125,13 @@ async function createThumbnails () {
       track.indexURL = change_path(track.indexURL)
       newTracks.push(track)
     }
-    for (const { coordinates, image } of callset.loci) { 
+    // forEach does not wait for promises https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach
+    callset.loci.forEach(async ({ coordinates, image }, locusIndex) => {
       const imagePath = `${webApp_assets_directory_absolute}/${thumbnails_directory}/${image}`
       await createScreenshot(coordinates, newTracks, imagePath) 
-    }
-  }
+      console.log(`>>> created thumbnail ${locusIndex+1}/${callset.loci.length} from callset ${callsetIndex+1}/${thumbnails.length}`)
+    })
+  })
 }
 
 createThumbnails()
