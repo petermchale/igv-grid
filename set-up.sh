@@ -13,6 +13,7 @@ tar -xf "node-${node_version}-linux-x64.tar.xz"
 rm "node-${node_version}-linux-x64.tar.xz"
 rm -rf "node"
 mv "node-${node_version}-linux-x64" "node"
+# no need to export PATH since it is already in the environment: https://unix.stackexchange.com/a/26059/406037
 PATH="${root_directory}/node/bin:$PATH"
 
 pip install cyvcf2
