@@ -29,9 +29,3 @@ expand_path callSets
 cd "${root_directory}/create-screenshots" && npm install
 cd "${root_directory}/web-app" && npm install
 
-# cluster-specific code block
-set +x 
-echo "***********************" 
-echo "add the following to your PATH environment variable:"
-echo "${root_directory}/node-${node_version}-linux-x64/bin"
-echo "***********************" 
