@@ -11,7 +11,7 @@ node_version="v12.18.3"
 curl --remote-name "https://nodejs.org/dist/${node_version}/node-${node_version}-linux-x64.tar.xz"
 tar -xf "node-${node_version}-linux-x64.tar.xz"
 rm "node-${node_version}-linux-x64.tar.xz"
-mv node-${node_version}-linux-x64" "node"
+mv "node-${node_version}-linux-x64" "node"
 PATH="${root_directory}/node/bin:$PATH"
 
 pip install cyvcf2
