@@ -1,14 +1,14 @@
 [
-  { 
+  {
     "labelForImageFilename": "tp",
-		"labelForVisualization": "True positives",
+    "labelForVisualization": "True positives",
     "filenameSuffix": "vcf",
     "filenameStem": "tp-call",
     "directory": "{{ROOT_DIRECTORY}}/data"
   },
-  { 
+  {
     "labelForImageFilename": "fp",
-		"labelForVisualization": "False positives",
+    "labelForVisualization": "False positives",
     "filenameSuffix": "vcf",
     "filenameStem": "fp",
     "directory": "{{ROOT_DIRECTORY}}/data"

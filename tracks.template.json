@@ -1,10 +1,10 @@
 [
   {
-    "type": "alignment", 
+    "type": "alignment",
     "format": "cram", 
-		"height": "100",
-    "name": "short-read alignments", 
-    "url": "short-read-alignments.cram", 
+    "height": "100",
+    "name": "short-read alignments",
+    "url": "short-read-alignments.cram",
     "indexURL": "short-read-alignments.cram.crai",
     "directory": "{{ROOT_DIRECTORY}}/data"
   }
