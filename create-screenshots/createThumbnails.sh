@@ -111,9 +111,6 @@ done
 # c.f., https://en.wikipedia.org/wiki/ANSI_escape_code
 # use node version 10 to avoid http-server error: 
 # https://github.com/http-party/http-server/issues/537
-which node 
-echo $PATH
-exit 1
 node node_modules/http-server/bin/${server} -p ${port} > ${server}.log 2> ${server}.err &
 
 url="http://127.0.0.1:${port}/igv.html"
