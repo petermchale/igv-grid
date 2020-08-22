@@ -2,7 +2,6 @@
 .vscode
 .browserslistrc
 .editorconfig
-.eslintrc.js
 
 http-server.*
 node_modules
