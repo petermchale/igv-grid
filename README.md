@@ -10,15 +10,7 @@ Then run:
 ./set-up.sh 
 ```
 
-## Customize 
-
 Drop a reference genome into `data` and change the corresponding entries in `reference.json`. 
-
-Alter `tracks.json` and drop corresponding files into `data`. 
-
-Alter `callSets.json` and drop corresponding files into `data`. 
-
-Customize `port` and `number_thumbnails` (number of thumbnails per call set) in `create-screenshots.sh`.
 
 ## Run  
 
@@ -37,6 +29,14 @@ From your local computer, do (change username and host):
 ssh -N -L localhost:8080:localhost:8080 u6018199@hunnicutt.chpc.utah.edu
 ```
 and visit `localhost:8080` in your web browser. 
+
+## Customize 
+
+Alter `tracks.json` and drop corresponding files into `data`. 
+
+Alter `callSets.json` and drop corresponding files into `data`. 
+
+Customize `port` and `number_thumbnails` (number of thumbnails per call set) in `create-screenshots.sh`.
 
 ## TODOs
 
