@@ -1,5 +1,11 @@
 ## Set up
 
+Use python 3, e.g.,: 
+```
+conda create -n igv-grid python=3
+conda activate igv-grid
+```
+Then run: 
 ```
 ./set-up.sh 
 ```
