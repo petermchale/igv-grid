@@ -30,7 +30,7 @@ async function createScreenshot (coordinates, tracks, imagePath) {
     tracks 
   )
 
-  await page.waitFor(1000)  // wait for x seconds
+  await page.waitFor(5000)  // wait for x seconds
   // c.f., https://github.com/brentp/jigv#automated-screenshots
   // c.f., https://github.com/igvteam/igv.js/issues/1138 
 
