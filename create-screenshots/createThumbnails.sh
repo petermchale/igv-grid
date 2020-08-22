@@ -107,7 +107,7 @@ for track in $(get_tracks); do
   make_symbolic_link ${track_directory}/${track_indexURL} 
 done
 
-# Use "less -R" to view ${server}.out and ${server}.err,
+# Use "less -R" to view ${server}.* 
 # c.f., https://en.wikipedia.org/wiki/ANSI_escape_code
 # use node version 10 to avoid http-server error: 
 # https://github.com/http-party/http-server/issues/537
