@@ -2,7 +2,7 @@
   {
     "type": "alignment",
     "format": "cram", 
-    "height": "100",
+    "height": "200",
     "name": "short-read alignments",
     "url": "short-read-alignments.cram",
     "indexURL": "short-read-alignments.cram.crai",
