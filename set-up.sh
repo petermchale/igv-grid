@@ -6,13 +6,32 @@ PS4='+ (${BASH_SOURCE[0]##*/} @ ${LINENO}): ${FUNCNAME[0]:+${FUNCNAME[0]}(): }'
 
 root_directory="$PWD" 
 
-# cluster-specific code block
-node_version="v12.18.3"
-curl --remote-name "https://nodejs.org/dist/${node_version}/node-${node_version}-linux-x64.tar.xz"
-tar -xf "node-${node_version}-linux-x64.tar.xz"
-rm "node-${node_version}-linux-x64.tar.xz"
+kernel=$(uname --kernel-name)
+machine=$(uname --machine)
+
 rm -rf "node"
-mv "node-${node_version}-linux-x64" "node"
+node_version="v12.18.3"
+
+if [[ ${machine} == 'x86_64' ]]; then
+  if [[ ${kernel} == 'Darwin'* ]]; then
+    curl --remote-name "https://nodejs.org/dist/${node_version}/node-${node_version}-darwin-x64.tar.gz"
+    tar -xf "node-${node_version}-darwin-x64.tar.gz"
+		rm "node-${node_version}-darwin-x64.tar.gz"
+		mv "node-${node_version}-darwin-x64" "node"
+  elif [[ ${kernel} == 'Linux'* ]]; then
+    curl --remote-name "https://nodejs.org/dist/${node_version}/node-${node_version}-linux-x64.tar.xz"
+    tar -xf "node-${node_version}-linux-x64.tar.xz"
+    rm "node-${node_version}-linux-x64.tar.xz"
+    mv "node-${node_version}-linux-x64" "node"
+  else
+    echo 'neither Darwin nor Linux'
+    exit 1
+  fi
+else
+  echo 'not x86_64'
+  exit 1
+fi
+
 # no need to export PATH since it is already in the environment: https://unix.stackexchange.com/a/26059/406037
 PATH="${root_directory}/node/bin:$PATH"
 
