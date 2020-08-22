@@ -6,7 +6,7 @@
 http-server.*
 node_modules
 web-app/public/igv
-node-*
+node
 assets
 
 tracks.json
