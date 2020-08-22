@@ -3,8 +3,5 @@ root_directory="$PWD"
 PATH="${root_directory}/node/bin:$PATH"
 
 cd web-app 
-which node 
-echo $PATH
-exit 1
 npm run serve
 
