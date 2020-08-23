@@ -1,11 +1,11 @@
 [
   {
     "type": "alignment",
-    "format": "cram", 
-    "height": "200",
+    "format": "bam",
+    "height": "300",
     "name": "short-read alignments",
-    "url": "short-read-alignments.cram",
-    "indexURL": "short-read-alignments.cram.crai",
+    "url": "CHS.HG00514.experimental_region.sorted.translated.bam",
+    "indexURL": "CHS.HG00514.experimental_region.sorted.translated.bam.bai",
     "directory": "{{ROOT_DIRECTORY}}/data"
   }
 ]

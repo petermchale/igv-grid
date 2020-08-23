@@ -44,7 +44,8 @@ export default {
       return this.$router.push('/')
     },
     changePath (filename) {
-      return `${this.publicPath}${filename}`
+      // return `${this.publicPath}${filename}`
+      return `/${filename}`
     }
   },
   mounted () {
@@ -52,8 +53,8 @@ export default {
 
     const options = {
       genome: 'hg38',
-      locus: this.locus.coordinates,
-      tracks: [this.tracks[0]]
+      locus: 'chr10:10265461', // 'chr1:820,455-820,494', // this.locus.coordinates,
+      tracks: this.tracks
     }
 
     console.log('options:', JSON.parse(JSON.stringify(options)))

@@ -5,9 +5,9 @@
 
 http-server.*
 node_modules
-web-app/public/igv
 node
 assets
+dist
 
 tracks.json
 reference.json
