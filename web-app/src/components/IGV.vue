@@ -7,14 +7,11 @@
 <script>
 import igv from 'igv'
 import callSets from '@/assets/thumbnails.json'
-import { cloneDeep } from 'lodash'
 
 export default {
   data () {
     return {
-      callSets,
-      // https://cli.vuejs.org/guide/html-and-static-assets.html#the-public-folder
-      publicPath: process.env.BASE_URL
+      callSets
     }
   },
   computed: {
@@ -29,23 +26,12 @@ export default {
       )
     },
     tracks () {
-      // https://stackoverflow.com/a/23436563/6674256
-      const newTracks = []
-      for (const track of cloneDeep(this.callSet.tracks)) {
-        track.url = this.changePath(track.url)
-        track.indexURL = this.changePath(track.indexURL)
-        newTracks.push(track)
-      }
-      return newTracks
+      return this.callSet.tracks
     }
   },
   methods: {
     closeLightbox () {
       return this.$router.push('/')
-    },
-    changePath (filename) {
-      // return `${this.publicPath}${filename}`
-      return `/${filename}`
     }
   },
   mounted () {
@@ -53,7 +39,7 @@ export default {
 
     const options = {
       genome: 'hg38',
-      locus: 'chr10:10265461', // 'chr1:820,455-820,494', // this.locus.coordinates,
+      locus: this.locus.coordinates,
       tracks: this.tracks
     }
 

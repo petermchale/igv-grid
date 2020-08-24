@@ -19,12 +19,12 @@ server="http-server"
 script_directory="$PWD"
 
 webApp_assets_directory_relative="/src/assets"
-webApp_igv_directory_relative="igv"
+webApp_igv_directory_relative="/igv"
 createScreenshots_assets_directory_relative="/assets"
 
 parent_directory="$(dirname "${script_directory}")"
 webApp_assets_directory_absolute="${parent_directory}/web-app${webApp_assets_directory_relative}" 
-webApp_igv_directory_absolute="${parent_directory}/web-app/public/${webApp_igv_directory_relative}" 
+webApp_igv_directory_absolute="${parent_directory}/web-app${webApp_igv_directory_relative}" 
 createScreenshots_assets_directory_absolute="${parent_directory}/create-screenshots${createScreenshots_assets_directory_relative}" 
 mkdir --parents ${createScreenshots_assets_directory_absolute}
 
@@ -39,6 +39,8 @@ rm --force ${webApp_igv_directory_absolute}/*.gz
 rm --force ${webApp_igv_directory_absolute}/*.tbi
 rm --force ${webApp_igv_directory_absolute}/*.cram
 rm --force ${webApp_igv_directory_absolute}/*.crai
+rm --force ${webApp_igv_directory_absolute}/*.bam
+rm --force ${webApp_igv_directory_absolute}/*.bai
 
 get_tracks () {
   cat ../tracks.json | python get_tracks.py

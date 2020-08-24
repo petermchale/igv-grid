@@ -1,6 +1,5 @@
 {
-  "fastaURL": "GRCh38_full_analysis_set_plus_decoy_hla.fa",
-  "indexURL": "GRCh38_full_analysis_set_plus_decoy_hla.fa.fai",
+  "fastaURL": "https://s3.amazonaws.com/igv.broadinstitute.org/genomes/seq/hg19/hg19.fasta",
   "chromosomeSizes": "GRCh38_full_analysis_set_plus_decoy_hla.genome",
   "directory": "{{ROOT_DIRECTORY}}/data"
 }
