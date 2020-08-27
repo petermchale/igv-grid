@@ -32,11 +32,12 @@ Start web app:
 ```
 ./launch-web-app.sh
 ```
-From your local computer, do (change username and host):
+Visit `localhost:8080` in your web browser. 
+
+If the software is run on a remote machine, then you can view the web-app on a local machine by doing the following from the local machine (change username and host first):
 ```
-ssh -N -L localhost:8080:localhost:8080 u6018199@hunnicutt.chpc.utah.edu
+ssh -N -L localhost:8080:localhost:8080 username@host
 ```
-and visit `localhost:8080` in your web browser. 
 
 ## Customize 
 
