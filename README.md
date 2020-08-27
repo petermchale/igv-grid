@@ -13,11 +13,11 @@ conda activate igv-grid
 Download this repo: 
 ```
 git clone https://github.com/petermchale/igv-grid
-cd igv-grid
 ```
 
 Then run: 
 ```
+cd igv-grid
 ./set-up.sh 
 ```
 
