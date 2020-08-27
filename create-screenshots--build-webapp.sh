@@ -5,7 +5,7 @@ set -o xtrace
 PS4='+ (${BASH_SOURCE[0]##*/} @ ${LINENO}): ${FUNCNAME[0]:+${FUNCNAME[0]}(): }'
 
 port="9000" 
-number_thumbnails="25"
+number_thumbnails="2"
 variant_slop="250"
 headless_browser_wait_time="5000"
 

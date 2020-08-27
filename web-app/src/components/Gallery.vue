@@ -96,6 +96,7 @@ export default {
   }
 
   .gallery-panel {
+    padding: 2px;
     width: 100%;
     object-fit: contain;
     /* object-position: 50% 50%; doesn't work */

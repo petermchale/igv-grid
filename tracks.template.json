@@ -2,11 +2,12 @@
   {
     "type": "alignment",
     "format": "bam",
-    "showSoftClips": "true",
-    "height": "300",
-    "name": "alignments",
+    "showSoftClips": true,
+    "height": "150",
+    "name": "Alignments",
     "url": "CHS.HG00514.experimental_region.sorted.translated.bam",
     "indexURL": "CHS.HG00514.experimental_region.sorted.translated.bam.bai",
-    "directory": "{{ROOT_DIRECTORY}}/data"
+    "directory": "{{ROOT_DIRECTORY}}/data",
+    "thumbnail": true
   }
 ]

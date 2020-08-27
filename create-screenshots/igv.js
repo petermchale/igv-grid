@@ -5,16 +5,26 @@ async function renderIGV(coordinates, tracks) {
 
   const response = await axios.get('/assets/reference.json')
   const { fastaURL, indexURL } = response.data
-
+  
   const options = {
-    showIdeogram: false,
-    showRuler: false,
     locus: coordinates,
     reference: { fastaURL, indexURL },
-    tracks: tracks
+    tracks: tracks.filter(track => track.thumbnail)
   }
 
   const browser = await igv.createBrowser(div, options)  
   console.log('browser info:', browser) 
+}
+
+function removeScrollBars () {
+  for (const scrollBar of document.getElementsByClassName('igv-scrollbar-outer-div')) {
+    scrollBar.style.display = "none"
+  }  
+}
+
+function removeTrackLabels () {
+  for (const scrollBar of document.getElementsByClassName('igv-track-label')) {
+    scrollBar.style.display = "none"
+  }  
 }
 

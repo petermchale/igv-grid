@@ -4,13 +4,15 @@
     "labelForVisualization": "True positives",
     "filenameSuffix": "vcf",
     "filenameStem": "tp-call",
-    "directory": "{{ROOT_DIRECTORY}}/data"
+    "directory": "{{ROOT_DIRECTORY}}/data",
+    "trackHeight": "50"
   },
   {
     "labelForImageFilename": "fp",
     "labelForVisualization": "False positives",
     "filenameSuffix": "vcf",
     "filenameStem": "fp",
-    "directory": "{{ROOT_DIRECTORY}}/data"
+    "directory": "{{ROOT_DIRECTORY}}/data",
+    "trackHeight": "50"
   }
 ]

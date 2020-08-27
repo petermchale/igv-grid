@@ -1,6 +1,6 @@
 const puppeteer = require('puppeteer')
 const lineReader = require('line-reader')
-const Promise = require('bluebird') 
+const bluebird = require('bluebird') 
 const fs = require('fs')
 const path = require('path')
 const { cloneDeep } = require('lodash')
@@ -11,6 +11,13 @@ const webApp_igv_directory_relative = process.argv[5]
 const createScreenshots_assets_directory_relative = process.argv[6]
 const createScreenshots_assets_directory_absolute = process.argv[7] 
 const headless_browser_wait_time = Number(process.argv[8])
+
+function sum (array) {
+  return array.reduce(
+    (accumulator, currentValue) => accumulator + currentValue, 
+    0
+  )
+}
 
 async function createScreenshot (coordinates, tracks, imagePath) {
   const browser = await puppeteer.launch({
@@ -24,6 +31,7 @@ async function createScreenshot (coordinates, tracks, imagePath) {
   const url = process.argv[2]
   await page.goto(url)
 
+  // https://github.com/puppeteer/puppeteer/blob/v5.2.1/docs/api.md#pageevaluatepagefunction-args
   await page.evaluate(
     async (coordinates, tracks) => await renderIGV(coordinates, tracks),
     coordinates, 
@@ -31,20 +39,47 @@ async function createScreenshot (coordinates, tracks, imagePath) {
   )
 
   // Wait for x seconds before taking a screenshot
-  // because there is no event that signals that the page is fully rendered
+  // because there is no event that signals that all data have been fetched 
+  // and the page is fully rendered
   // c.f., https://github.com/brentp/jigv#automated-screenshots
   // c.f., https://github.com/igvteam/igv.js/issues/1138 
 	console.log('headless browser waiting for:', headless_browser_wait_time) 
   await page.waitFor(headless_browser_wait_time) 
 
-	// https://github.com/puppeteer/puppeteer/blob/v5.2.1/docs/api.md#class-elementhandle
-  const elementHandle = await page.$('div[class=igv-content-div]')
+  // https://github.com/puppeteer/puppeteer/blob/v5.2.1/docs/api.md#pageselector-1
+  const trackElements = await page.$$('div:not(.igv-viewport-ruler).igv-viewport-div')  
 
-  // "null" not valid value for "clip" according to docs, 
-  // but not setting "clip" triggers an error
-  // cf. https://github.com/puppeteer/puppeteer/blob/v5.2.1/docs/api.md#pagescreenshotoptions
-  // cf. https://github.com/puppeteer/puppeteer/blob/21552f8fe76108267a6f2574747ff06746623ece/src/common/Page.ts#L1622
-  await elementHandle.screenshot({path: imagePath, clip: null, fullPage: true})
+  const xs = []
+  const ys = []
+  const widths = []
+  const heights = []
+  for (const trackElement of trackElements) { 
+    // https://github.com/puppeteer/puppeteer/blob/v5.2.1/docs/api.md#elementhandleboundingbox
+    const {x, y, width, height} = await trackElement.boundingBox()
+    xs.push(x)
+    ys.push(y)
+    widths.push(width)
+    heights.push(height)
+  }
+  const boundingBox = { 
+    x: Math.min(...xs),
+    y: Math.min(...ys),
+    width: Math.max(...widths),
+    height: sum(heights)
+  }
+
+  // change styles that were dynamically set
+  page.evaluate(() => { 
+    removeScrollBars()
+    removeTrackLabels()
+  })
+
+  // https://github.com/puppeteer/puppeteer/blob/v5.2.1/docs/api.md#elementhandlescreenshotoptions
+  // docs are misleading: do not set the options "fullPage" or "clip" when using "elementHandle"
+  // await elementHandle.screenshot({path: imagePath})
+
+  // https://github.com/puppeteer/puppeteer/blob/v5.2.1/docs/api.md#pagescreenshotoptions
+  await page.screenshot({path: imagePath, clip: boundingBox})
 
   await browser.close()
 } 
@@ -66,11 +101,12 @@ async function createThumbnailsIndexForCallSet (callSet) {
   const tracks = [{  
     type: 'variant', 
     format: 'vcf', 
-    height: 100,
+    height: `${callSet.trackHeight}`,
     name: `${callSet.labelForVisualization}`, 
     url: `${webApp_igv_directory_relative}/${callSet.filenameStem}.sorted.vcf.gz`, 
     indexURL: `${webApp_igv_directory_relative}/${callSet.filenameStem}.sorted.vcf.gz.tbi`,
-    displayMode: 'collapsed'
+    displayMode: 'collapsed',
+    thumbnail: true
   }]  
 
   for (const track of getAdditionalTracks()) {
@@ -82,7 +118,7 @@ async function createThumbnailsIndexForCallSet (callSet) {
 
   let id = 0
 
-  const readFile = Promise.promisify(lineReader.eachLine)
+  const readFile = bluebird.promisify(lineReader.eachLine)
 
   const bedFilePath = `${createScreenshots_assets_directory_absolute}/${callSet.filenameStem}.sampled.slopped.bed`
   await readFile(bedFilePath, line => {

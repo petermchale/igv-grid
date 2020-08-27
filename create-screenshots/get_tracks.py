@@ -3,5 +3,9 @@ import json
 
 tracks = json.load(sys.stdin) 
 
-for track in tracks: 
-  print('{},{},{}'.format(track['url'], track['indexURL'], track['directory']))
+for track in tracks:
+  print('{},{},{}'.format(
+    track['url'], 
+    track['indexURL'], 
+    track['directory']
+  ))
