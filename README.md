@@ -10,8 +10,6 @@ Then run:
 ./set-up.sh 
 ```
 
-Drop a reference genome into `data` and change the corresponding entries in `reference.json`. 
-
 ## Run  
 
 Create thumbnails:
