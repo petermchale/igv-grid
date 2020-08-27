@@ -2,7 +2,7 @@
   {
     "type": "alignment",
     "format": "bam",
-		"showSoftClips": "true",
+    "showSoftClips": "true",
     "height": "300",
     "name": "alignments",
     "url": "CHS.HG00514.experimental_region.sorted.translated.bam",
