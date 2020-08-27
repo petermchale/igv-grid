@@ -11,4 +11,10 @@ root_directory="$PWD"
 PATH="${root_directory}/node/bin:$PATH"
 
 cd ${root_directory}/web-app
-node node_modules/serve/bin/serve.js --single --symlinks --listen ${port} dist
+
+# use "--proxy" option to serve single-page applications:
+# https://github.com/http-party/http-server/pull/513
+# https://router.vuejs.org/guide/essentials/history-mode.html#html5-history-mode
+node node_modules/http-server/bin/http-server dist --proxy "http://localhost:${port}?" --port ${port} --log-ip
+
+#node node_modules/http-server/bin/http-server --help 

@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "core-js": "^3.6.5",
+    "http-server": "^0.12.3",
     "igv": "^2.6.3",
     "lodash": "^4.17.20",
     "sass": "^1.26.10",
@@ -34,7 +35,6 @@
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-standard": "^4.0.0",
     "eslint-plugin-vue": "^6.2.2",
-    "spa-http-server": "^0.9.0",
     "vue-template-compiler": "^2.6.11"
   }
 }

@@ -1,0 +1,6 @@
+.igv-track-manipulation-handle,
+.igv-right-hand-gutter,
+.igv-left-hand-gutter,
+.igv-scrollbar-outer-div {
+  display: none;
+}

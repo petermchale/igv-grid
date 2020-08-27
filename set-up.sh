@@ -48,4 +48,3 @@ expand_path callSets
 
 cd "${root_directory}/create-screenshots" && npm install
 cd "${root_directory}/web-app" && npm install
-

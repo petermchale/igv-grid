@@ -12,7 +12,8 @@ PS4='+ (${BASH_SOURCE[0]##*/} @ ${LINENO}): ${FUNCNAME[0]:+${FUNCNAME[0]}(): }'
 
 port=$1 
 number_thumbnails=$2 
-slop=$3 
+variant_slop=$3 
+headless_browser_wait_time=$4 
 
 server="http-server"
 
@@ -41,6 +42,7 @@ rm --force ${webApp_igv_directory_absolute}/*.cram
 rm --force ${webApp_igv_directory_absolute}/*.crai
 rm --force ${webApp_igv_directory_absolute}/*.bam
 rm --force ${webApp_igv_directory_absolute}/*.bai
+rm --force ${webApp_igv_directory_absolute}/*.json
 
 get_tracks () {
   cat ../tracks.json | python get_tracks.py
@@ -56,6 +58,7 @@ clean_up_createScreenshots_assets_directory () {
     rm --force ${createScreenshots_assets_directory_absolute}/${track_url_} 
     rm --force ${createScreenshots_assets_directory_absolute}/${track_indexURL_}
   done
+  rm --force ${createScreenshots_assets_directory_absolute}/*.json
 }
 
 clean_up_createScreenshots_assets_directory
@@ -85,7 +88,7 @@ for call_set in $(get_call_sets); do
   
   python vcf_to_bed.py ${call_set_path}.vcf |
     shuf --head-count=${number_thumbnails} |
-    bedtools slop -i stdin -g ${chromosome_sizes_directory}/${chromosome_sizes} -b ${slop} \
+    bedtools slop -i stdin -g ${chromosome_sizes_directory}/${chromosome_sizes} -b ${variant_slop} \
     > ${call_set_path}.sampled.slopped.bed
     
   (grep ^"#" ${call_set_path}.vcf; (grep --invert-match ^"#" ${call_set_path}.vcf || true) \
@@ -109,6 +112,8 @@ for track in $(get_tracks); do
   make_symbolic_link ${track_directory}/${track_indexURL} 
 done
 
+ln --symbolic ${parent_directory}/reference.json ${createScreenshots_assets_directory_absolute}
+
 # Use "less -R" to view ${server}.* 
 # c.f., https://en.wikipedia.org/wiki/ANSI_escape_code
 # use node version 10 to avoid http-server error: 
@@ -122,8 +127,12 @@ node createThumbnails.js \
   ${thumbnails_directory} \
   ${webApp_igv_directory_relative} \
   ${createScreenshots_assets_directory_relative} \
-  ${createScreenshots_assets_directory_absolute}
+  ${createScreenshots_assets_directory_absolute} \
+  ${headless_browser_wait_time}
 
 kill $(pgrep -f "${server}")
 
 clean_up_createScreenshots_assets_directory
+
+
+

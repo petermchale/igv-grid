@@ -1,12 +1,14 @@
 <template>
-  <div class="lightbox" @click.self="closeLightbox" >
-    <div ref="igv" class="igv"></div>
+  <div class="lightbox" @click.self="closeLightbox">
+    <div ref="igv" class="overflow-box">
+    </div>
   </div>
 </template>
 
 <script>
 import igv from 'igv'
 import callSets from '@/assets/thumbnails.json'
+import { fastaURL, indexURL } from '@/assets/reference.json'
 
 export default {
   data () {
@@ -38,7 +40,8 @@ export default {
     console.log('igv.js version', igv.version())
 
     const options = {
-      genome: 'hg38',
+      showIdeogram: true,
+      reference: { fastaURL, indexURL },
       locus: this.locus.coordinates,
       tracks: this.tracks
     }
@@ -65,7 +68,9 @@ export default {
     background-color: rgba(0, 0, 0, 0.8);
   }
 
-  .igv {
+  .overflow-box {
+    overflow: auto;
+    height: 100%;
     background-color: white;
   }
 </style>
