@@ -8,7 +8,7 @@ node_modules
 node
 assets
 dist
-web-app/public/igv
+web-app/igv
 
 tracks.json
 reference.json
