@@ -1,4 +1,8 @@
-## Demo
+# igv-grid
+
+Create snapshots of [igv.js](https://github.com/igvteam/igv.js/) visualizations of genomic variants and view those thumbnails next to one another in an interactive, responsive web app.
+
+## Demo 
 
 https://igv-grid.surge.sh/
 

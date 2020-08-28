@@ -13,7 +13,8 @@ import { fastaURL, indexURL } from '@/assets/reference.json'
 export default {
   data () {
     return {
-      callSets
+      callSets,
+      browser: null
     }
   },
   computed: {
@@ -46,11 +47,20 @@ export default {
       tracks: this.tracks
     }
 
+    console.log('reference', options.reference)
+
     console.log('options:', JSON.parse(JSON.stringify(options)))
 
     igv.createBrowser(this.$refs.igv, options).then(browser => {
+      this.browser = browser
       console.log('browser info:', browser)
     })
+  },
+  beforeDestroy () {
+    console.log('cleaning up...')
+    console.log('this.browser before calling igv.removeBrowser', this.browser)
+    igv.removeBrowser(this.browser)
+    console.log('this.browser after calling igv.removeBrowser', this.browser)
   }
 }
 </script>

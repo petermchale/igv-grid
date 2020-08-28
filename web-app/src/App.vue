@@ -25,7 +25,7 @@
     <v-main style="background-color: #eee">
       <!-- Provides the proper gutter to the application  -->
       <v-container fluid>
-        <router-view/>
+        <router-view :key="$route.path"/>
       </v-container>
     </v-main>
 

@@ -19,7 +19,7 @@
         <!-- https://stackoverflow.com/questions/60628478/vuetify-carousel-image-loading -->
         <v-carousel-item
           v-for="(loci, locusID) in batchesOfLoci(callSet)"
-          :key="locusID"
+          :key="`/${callSet.id}/${locusID}`"
           eager
         >
           <!-- wrapping rows: https://css-tricks.com/auto-sizing-columns-css-grid-auto-fill-vs-auto-fit/ -->
@@ -29,7 +29,7 @@
           >
             <router-link
               v-for="locus in loci"
-              :key="locus.id"
+              :key="`/${callSet.id}/${locus.id}`"
               :to="`/${callSet.id}/${locus.id}`"
             >
               <v-hover v-slot:default="{ hover }">
