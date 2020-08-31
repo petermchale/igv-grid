@@ -6,6 +6,8 @@ Create snapshots of [igv.js](https://github.com/igvteam/igv.js/) visualizations 
 
 https://igv-grid.surge.sh/
 
+Note that loci visualizations can be shared via URL, e.g., URL https://igv-grid.surge.sh/0/2  
+
 ## Applications 
 
 The app was developed to expedite the visual identification of features that differentiate true-positive from false-positive variant calls, such as soft-clipped reads and local sequence context. 
