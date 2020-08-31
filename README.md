@@ -6,7 +6,7 @@ Create snapshots of [igv.js](https://github.com/igvteam/igv.js/) visualizations 
 
 https://igv-grid.surge.sh/
 
-Note that loci visualizations can be shared via URL, e.g., URL https://igv-grid.surge.sh/0/2  
+Note that loci visualizations can be shared via URL, e.g., https://igv-grid.surge.sh/0/2  
 
 ## Applications 
 
