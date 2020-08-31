@@ -6,15 +6,15 @@ Create snapshots of [igv.js](https://github.com/igvteam/igv.js/) visualizations 
 
 https://igv-grid.surge.sh/
 
-Note that loci visualizations can be shared via URL, e.g., https://igv-grid.surge.sh/0/2  
+Note that loci visualizations can be shared with colleagues via URL, e.g., https://igv-grid.surge.sh/0/2 , which refers to thumbnail #2 from callet #0. 
 
 ## Applications 
 
 The app was developed to expedite the visual identification of features that differentiate true-positive from false-positive variant calls, such as soft-clipped reads and local sequence context. 
 
 Aside from methods development, other possible applications may include: 
-* Quality control: identify samples that harbor unusual alignments
-* Benchmarking methods: quick visual comparison of the calls made by a set of variant callers
+* *Sample quality control*: identify samples that harbor unusual alignments
+* *Caller benchmarking*: quick visual comparison of the calls made by a set of variant callers
 
 ## Installation
 
@@ -29,11 +29,13 @@ Download this repo:
 git clone https://github.com/petermchale/igv-grid
 ```
 
-Then run: 
+Then execute: 
 ```
 cd igv-grid
 ./set-up.sh 
 ```
+
+Installation successfully tested on Darwin x86_64 and Linux x86_64. 
 
 ## Usage  
 
