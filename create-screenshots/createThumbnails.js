@@ -102,12 +102,15 @@ async function createThumbnailsIndexForCallSet (callSet) {
 
   const tracks = [{  
     type: 'variant', 
-    format: 'vcf', 
+    format: 'vcf',
     height: `${callSet.trackHeight}`,
     name: `${callSet.labelForVisualization}`, 
     url: `${webApp_igv_directory_relative}/${callSet.filenameStem}.sorted.vcf.gz`, 
     indexURL: `${webApp_igv_directory_relative}/${callSet.filenameStem}.sorted.vcf.gz.tbi`,
     displayMode: 'collapsed',
+    homrefColor: 'rgb(255,0,0)',
+    hetvarColor: 'rgb(0,255,0)',
+    homvarColor: 'rgb(0,0,255)',    
     thumbnail: true
   }]  
 
