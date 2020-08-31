@@ -85,10 +85,12 @@ async function createScreenshot (coordinates, tracks, imagePath) {
 } 
 
 function getAdditionalTracks () { 
+	// deep copy prevents changes to this object being cached by node.js:
   return cloneDeep(require('../tracks.json'))
 }
 
 function getCallSets () { 
+	// deep copy prevents changes to this object being cached by node.js:
   return cloneDeep(require('../callSets.json'))
 }
 

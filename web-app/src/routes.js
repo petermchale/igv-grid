@@ -9,17 +9,17 @@ Vue.use(VueRouter)
 
 const routes = [
   {
-    // https://router.vuejs.org/guide/essentials/history-mode.html#caveat
-    path: '*',
-    component: NotFoundComponent
-  },
-  {
     path: '/',
     component: Gallery
   },
   {
     path: '/:callSetID/:locusID',
     component: IGVOnGallery
+  },
+  {
+    // https://router.vuejs.org/guide/essentials/history-mode.html#caveat
+    path: '*',
+    component: NotFoundComponent
   }
 ]
 

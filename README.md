@@ -6,6 +6,14 @@ Create snapshots of [igv.js](https://github.com/igvteam/igv.js/) visualizations 
 
 https://igv-grid.surge.sh/
 
+## Applications 
+
+The app was developed to expedite the visual identification of features that differentiate true-positive from false-positive variant calls, such as soft-clipped reads and local sequence context. 
+
+Aside from methods development, other possible applications may include: 
+* Quality control: identify samples that harbor unusual alignments
+* Benchmarking methods: quick visual comparison of the calls made by a set of variant callers
+
 ## Installation
 
 Use python 3, e.g.,: 

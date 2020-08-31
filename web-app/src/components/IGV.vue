@@ -9,6 +9,7 @@
 import igv from 'igv'
 import callSets from '@/assets/thumbnails.json'
 import { fastaURL, indexURL } from '@/assets/reference.json'
+import { cloneDeep } from 'lodash'
 
 export default {
   data () {
@@ -38,29 +39,24 @@ export default {
     }
   },
   mounted () {
-    console.log('igv.js version', igv.version())
+    // console.log('igv.js version', igv.version())
 
     const options = {
       showIdeogram: true,
       reference: { fastaURL, indexURL },
       locus: this.locus.coordinates,
-      tracks: this.tracks
+      // https://github.com/igvteam/igv.js/issues/1167:
+      tracks: cloneDeep(this.tracks)
     }
-
-    console.log('reference', options.reference)
-
-    console.log('options:', JSON.parse(JSON.stringify(options)))
 
     igv.createBrowser(this.$refs.igv, options).then(browser => {
       this.browser = browser
-      console.log('browser info:', browser)
+      // console.log('browser info:', browser)
     })
   },
   beforeDestroy () {
-    console.log('cleaning up...')
-    console.log('this.browser before calling igv.removeBrowser', this.browser)
+    // prevent memory leaks:
     igv.removeBrowser(this.browser)
-    console.log('this.browser after calling igv.removeBrowser', this.browser)
   }
 }
 </script>
