@@ -24,7 +24,7 @@ conda create -n igv-grid python=3
 conda activate igv-grid
 ```
 
-Download this repo: 
+Then download this repo: 
 ```
 git clone https://github.com/petermchale/igv-grid
 ```

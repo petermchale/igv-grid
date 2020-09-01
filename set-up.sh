@@ -36,6 +36,7 @@ fi
 PATH="${root_directory}/node/bin:$PATH"
 
 pip install cyvcf2
+pip install colorama
 
 expand_path () {
   local stem_=$1
