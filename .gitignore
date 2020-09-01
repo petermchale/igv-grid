@@ -13,3 +13,5 @@ web-app/igv
 tracks.json
 reference.json
 callSets.json
+
+*.tmp

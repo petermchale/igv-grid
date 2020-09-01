@@ -44,16 +44,16 @@ rm --force ${webApp_igv_directory_absolute}/*.bam
 rm --force ${webApp_igv_directory_absolute}/*.bai
 rm --force ${webApp_igv_directory_absolute}/*.json
 
-get_tracks () {
-  cat ../tracks.json | python get_tracks.py
-}
+# using a tmp file (instead of a child process)
+# allows us to capture errors emitted from the python script
+cat ../tracks.json | python get_tracks.py > tracks.tmp
 
 clean_up_createScreenshots_assets_directory () {
   rm --force ${createScreenshots_assets_directory_absolute}/*.vcf
   rm --force ${createScreenshots_assets_directory_absolute}/*.bed
   rm --force ${createScreenshots_assets_directory_absolute}/*.gz
   rm --force ${createScreenshots_assets_directory_absolute}/*.tbi 
-  for track_ in $(get_tracks); do
+  for track_ in $(cat tracks.tmp); do
     IFS=',' read track_url_ track_indexURL_ track_directory_ <<< "${track_}"
     rm --force ${createScreenshots_assets_directory_absolute}/${track_url_} 
     rm --force ${createScreenshots_assets_directory_absolute}/${track_indexURL_}
@@ -63,17 +63,17 @@ clean_up_createScreenshots_assets_directory () {
 
 clean_up_createScreenshots_assets_directory
 
-get_call_sets () {
-  cat ../callSets.json | python get_call_sets.py
-}
+# using a tmp file (instead of a child process)
+# allows us to capture errors emitted from the python script
+cat ../callSets.json | python get_call_sets.py > callSets.tmp
 
-get_chromosome_sizes () {
-  cat ../reference.json | python get_chromosome_sizes.py
-}
+# using a tmp file (instead of a child process)
+# allows us to capture errors emitted from the python script
+cat ../reference.json | python get_chromosome_sizes.py > reference.tmp
 
-for call_set in $(get_call_sets); do
+for call_set in $(cat callSets.tmp); do
   IFS=',' read call_set_stem call_set_suffix call_set_directory <<< "${call_set}"
-  IFS=',' read chromosome_sizes chromosome_sizes_directory <<< "$(get_chromosome_sizes)"
+  IFS=',' read chromosome_sizes chromosome_sizes_directory <<< "$(cat reference.tmp)"
 
   if [[ ${call_set_suffix} != 'vcf' ]]; then
     echo "call set should be uncompressed vcf but has suffix:" ${call_set_suffix}
@@ -106,7 +106,7 @@ make_symbolic_link () {
   ln --symbolic ${target_} ${webApp_igv_directory_absolute}
 }
 
-for track in $(get_tracks); do
+for track in $(cat tracks.tmp); do
   IFS=',' read track_url track_indexURL track_directory <<< "${track}"
   make_symbolic_link ${track_directory}/${track_url} 
   make_symbolic_link ${track_directory}/${track_indexURL} 
