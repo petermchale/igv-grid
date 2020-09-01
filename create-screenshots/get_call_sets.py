@@ -1,11 +1,11 @@
 import sys
 import json 
+from report_exception import report 
 
 try:
   call_sets = json.load(sys.stdin) 
 except Exception as err: 
-  print('Input json file not properly formatted!', file=sys.stderr)
-  print(err, file=sys.stderr)
+  report(err)
   sys.exit(1)  
 
 for call_set in call_sets: 
