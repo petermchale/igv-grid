@@ -15,3 +15,5 @@ reference.json
 callSets.json
 
 *.tmp
+__pycache__
+
