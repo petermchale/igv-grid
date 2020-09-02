@@ -8,6 +8,7 @@
     "url": "CHS.HG00514.experimental_region.sorted.translated.bam",
     "indexURL": "CHS.HG00514.experimental_region.sorted.translated.bam.bai",
     "directory": "{{ROOT_DIRECTORY}}/data",
-    "thumbnail": true
+    "thumbnail": true,
+    "interactive": true
   }
 ]

@@ -111,7 +111,8 @@ async function createThumbnailsIndexForCallSet (callSet) {
     homrefColor: 'rgb(255,0,0)',
     hetvarColor: 'rgb(0,255,0)',
     homvarColor: 'rgb(0,0,255)',    
-    thumbnail: true
+    thumbnail: true,
+    interactive: true
   }]  
 
   for (const track of getAdditionalTracks()) {

@@ -46,7 +46,7 @@ export default {
       reference: { fastaURL, indexURL },
       locus: this.locus.coordinates,
       // https://github.com/igvteam/igv.js/issues/1167:
-      tracks: cloneDeep(this.tracks)
+      tracks: cloneDeep(this.tracks).filter(track => track.interactive)
     }
 
     igv.createBrowser(this.$refs.igv, options).then(browser => {
