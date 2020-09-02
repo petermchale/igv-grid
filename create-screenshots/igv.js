@@ -27,4 +27,3 @@ function removeTrackLabels () {
     scrollBar.style.display = "none"
   }  
 }
-
