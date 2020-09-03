@@ -15,6 +15,7 @@ The app was developed to expedite the visual identification of features that dif
 Aside from methods development, other possible applications may include: 
 * *Sample quality control*: identify samples that harbor unusual alignments
 * *Caller benchmarking*: quick visual comparison of the calls made by a set of variant callers
+* *Collaborative variant interrogation*: share a set of variants with colleagues for manual review
 
 ## Installation
 
