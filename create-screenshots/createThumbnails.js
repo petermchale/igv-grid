@@ -13,10 +13,11 @@ const createScreenshots_assets_directory_absolute = process.argv[7]
 const headless_browser_wait_time = Number(process.argv[8])
 
 async function createScreenshot (coordinates, tracks, imagePath) {
+  // https://github.com/puppeteer/puppeteer/blob/v5.2.1/docs/api.md#puppeteerlaunchoptions
   const browser = await puppeteer.launch({
     headless: true,
     args: ["--hide-scrollbars"],
-    defaultViewport: { width: 800, height: 800 }
+    defaultViewport: { width: 800, height: 1200 }
   })
 
   const page = await browser.newPage()
