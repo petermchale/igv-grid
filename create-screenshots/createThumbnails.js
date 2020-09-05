@@ -22,7 +22,6 @@ function sum (array) {
 async function createScreenshot (coordinates, tracks, imagePath) {
   const browser = await puppeteer.launch({
     headless: true,
-    dslowMo: 1000,
     args: ["--hide-scrollbars"]
   })
 
@@ -52,20 +51,32 @@ async function createScreenshot (coordinates, tracks, imagePath) {
   const xs = []
   const ys = []
   const widths = []
-  const heights = []
   for (const trackElement of trackElements) { 
     // https://github.com/puppeteer/puppeteer/blob/v5.2.1/docs/api.md#elementhandleboundingbox
-    const {x, y, width, height} = await trackElement.boundingBox()
+    const {x, y, width} = await trackElement.boundingBox()
     xs.push(x)
     ys.push(y)
     widths.push(width)
-    heights.push(height)
   }
+
+  const trackContainer = await page.$('div.igv-track-container-div')
+  const trackContainerHeight = (await trackContainer.boundingBox()).height
+
+  const rulerTrack = await page.$('div.igv-track-div[data-ruler-track]')
+  // https://github.com/puppeteer/puppeteer/blob/v5.2.1/docs/api.md#elementhandleboxmodel
+  const { 
+    content: rulerTrackContent, 
+    margin: rulerTrackMargin
+  } = await rulerTrack.boxModel()
+  const rulerTrackContentTop = Math.min(...rulerTrackContent.map(point => point.y))
+  const rulerTrackMarginBottom = Math.max(...rulerTrackMargin.map(point => point.y))
+  const rulerTrackHeight = rulerTrackMarginBottom - rulerTrackContentTop
+  
   const boundingBox = { 
     x: Math.min(...xs),
     y: Math.min(...ys),
     width: Math.max(...widths),
-    height: sum(heights)
+    height: trackContainerHeight - rulerTrackHeight
   }
 
   // change styles that were dynamically set
