@@ -16,7 +16,7 @@ async function createScreenshot (coordinates, tracks, imagePath) {
   const browser = await puppeteer.launch({
     headless: true,
     args: ["--hide-scrollbars"],
-    defaultViewport: null
+    defaultViewport: { width: 800, height: 800 }
   })
 
   const page = await browser.newPage()
