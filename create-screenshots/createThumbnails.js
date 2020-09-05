@@ -12,13 +12,6 @@ const createScreenshots_assets_directory_relative = process.argv[6]
 const createScreenshots_assets_directory_absolute = process.argv[7] 
 const headless_browser_wait_time = Number(process.argv[8])
 
-function sum (array) {
-  return array.reduce(
-    (accumulator, currentValue) => accumulator + currentValue, 
-    0
-  )
-}
-
 async function createScreenshot (coordinates, tracks, imagePath) {
   const browser = await puppeteer.launch({
     headless: true,
