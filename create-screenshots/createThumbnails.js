@@ -15,7 +15,8 @@ const headless_browser_wait_time = Number(process.argv[8])
 async function createScreenshot (coordinates, tracks, imagePath) {
   const browser = await puppeteer.launch({
     headless: true,
-    args: ["--hide-scrollbars"]
+    args: ["--hide-scrollbars"],
+    defaultViewport: null
   })
 
   const page = await browser.newPage()
