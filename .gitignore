@@ -17,3 +17,5 @@ callSets.json
 *.tmp
 __pycache__
 simple_repeats*
+
+slurm-*.out
