@@ -1,3 +1,10 @@
+#!/usr/bin/env bash
+#SBATCH --time=1:00:00
+#SBATCH --cpus-per-task=16
+#SBATCH --mem=10g # sacct -o reqmem,maxrss,averss,elapsed -j JOBID
+#SBATCH --account=redwood-gpu
+#SBATCH --partition=redwood-gpu
+
 set -o errexit
 set -o pipefail
 set -o nounset
