@@ -3,10 +3,10 @@
     "type": "alignment",
     "format": "bam",
     "showSoftClips": true,
-    "height": "150",
+    "height": "250",
     "name": "Alignments",
-    "url": "CHS.HG00514.experimental_region.sorted.translated.bam",
-    "indexURL": "CHS.HG00514.experimental_region.sorted.translated.bam.bai",
+    "url": "regions.sorted.bam",
+    "indexURL": "regions.sorted.bam.bai",
     "directory": "{{ROOT_DIRECTORY}}/data",
     "thumbnail": true,
     "interactive": true

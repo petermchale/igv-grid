@@ -3,7 +3,7 @@
     "labelForImageFilename": "tp",
     "labelForVisualization": "True positives",
     "filenameSuffix": "vcf",
-    "filenameStem": "tp-call",
+    "filenameStem": "tp-call.truncated.sorted",
     "directory": "{{ROOT_DIRECTORY}}/data",
     "trackHeight": "50"
   },
@@ -11,7 +11,7 @@
     "labelForImageFilename": "fp",
     "labelForVisualization": "False positives",
     "filenameSuffix": "vcf",
-    "filenameStem": "fp",
+    "filenameStem": "fp.truncated.sorted",
     "directory": "{{ROOT_DIRECTORY}}/data",
     "trackHeight": "50"
   }
