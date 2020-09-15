@@ -2,23 +2,52 @@
   <v-app id="app">
     <v-app-bar app elevate-on-scroll style="background-color: #eee">
       <v-toolbar-title>IGV Grid</v-toolbar-title>
+
       <v-spacer/>
-      <v-slider
-        prepend-icon="mdi-image-multiple"
-        v-model="batchSize"
-        :min="minBatchSize"
-        :max="maxBatchSize"
-        hide-details=auto
-      />
-      <span class="numerical-field">{{ this.batchSize }}</span>
-      <v-spacer/>
-      <v-slider
-        prepend-icon="mdi-image-size-select-large"
-        v-model="imageSize"
-        :min="minImageSize"
-        :max="maxImageSize"
-        hide-details
-      />
+
+      <v-menu
+        transition="scale-transition"
+        origin="top right"
+        :close-on-content-click="false"
+      >
+        <template v-slot:activator="{ on, attrs }">
+          <v-btn
+            icon
+            v-bind="attrs"
+            v-on="on"
+          >
+            <v-icon>mdi-dots-vertical</v-icon>
+          </v-btn>
+        </template>
+        <v-list>
+          <v-list-item>
+            <v-list-item-action class="slider-container">
+              <v-slider
+                prepend-icon="mdi-image-multiple"
+                v-model="batchSize"
+                :min="minBatchSize"
+                :max="maxBatchSize"
+                hide-details=auto
+              />
+            </v-list-item-action>
+            <v-list-item-content>
+              <span class="numerical-field">{{ this.batchSize }}</span>
+            </v-list-item-content>
+          </v-list-item>
+          <v-list-item>
+            <v-list-item-action style="width: 300px; margin-right: 10px;">
+              <v-slider
+                prepend-icon="mdi-image-size-select-large"
+                v-model="imageSize"
+                :min="minImageSize"
+                :max="maxImageSize"
+                hide-details
+              />
+            </v-list-item-action>
+          </v-list-item>
+        </v-list>
+      </v-menu>
+
     </v-app-bar>
 
     <!-- Sizes content based upon application components -->
@@ -36,6 +65,10 @@
 import { mapState } from 'vuex'
 
 export default {
+  data () {
+    return {
+    }
+  },
   computed: {
     // https://vuex.vuejs.org/guide/forms.html#two-way-computed-property
     imageSize: {
@@ -67,7 +100,11 @@ export default {
 <style scoped>
   .numerical-field {
     margin-left: 9px;
-    width: 40px;
+    width: 25px;
     color: rgba(0,0,0,.6);
+  }
+  .slider-container {
+    width: 300px;
+    margin-right: 10px !important;
   }
 </style>

@@ -10,10 +10,17 @@ Vue.use(VueRouter)
 const routes = [
   {
     path: '/',
+    name: 'home',
     component: Gallery
   },
   {
-    path: '/:callSetID/:locusID',
+    path: '/gallery/:batchSize/:batchIDs/:callSetID/:locusID',
+    name: 'gallery',
+    component: Gallery
+  },
+  {
+    path: '/interactive/:callSetID/:locusID',
+    name: 'interactive',
     component: IGVOnGallery
   },
   {
