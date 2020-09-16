@@ -57,7 +57,9 @@ ssh -N -L localhost:8080:localhost:8080 username@host
 
 ## Customize 
 
-Alter `tracks.json` and `callSets.json` to point to the data you want to visualize. Customize `number_thumbnails` (number of thumbnails per call set) in `create-screenshots--build-webapp.sh`.
+Alter `tracks.json` and `callSets.json` to point to the data you want to visualize. Customize `number_thumbnails` (number of thumbnails per call set) in `create-screenshots--build-webapp.sh`. 
+
+Another parameter in `create-screenshots--build-webapp.sh`, named `headless_browser_wait_time`, represents the length of time `puppeteer` will wait before taking a screenshot. I've occasionally needed to set this as large as 60000 (1min). 
 
 ## Acknowledgements
 
