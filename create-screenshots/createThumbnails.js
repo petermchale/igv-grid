@@ -28,8 +28,8 @@ async function createScreenshot (coordinates, tracks, imagePath) {
   // https://github.com/puppeteer/puppeteer/blob/v5.2.1/docs/api.md#pageevaluatepagefunction-args
   await page.evaluate(
     async (coordinates, tracks) => await renderIGV(coordinates, tracks),
-    coordinates, 
-    tracks 
+    coordinates,
+    tracks
   )
 
   // Wait for x seconds before taking a screenshot

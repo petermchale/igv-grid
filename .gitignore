@@ -19,3 +19,4 @@ __pycache__
 simple_repeats*
 
 slurm-*.out
+debug.js
