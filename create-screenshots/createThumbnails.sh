@@ -86,13 +86,13 @@ for call_set in $(cat callSets.tmp); do
 
   call_set_path=${createScreenshots_assets_directory_absolute}/${call_set_stem}
   
+  # TODO: remove debug code
   python vcf_to_bed.py ${call_set_path}.vcf |
     shuf --head-count=${number_thumbnails} > ${call_set_path}.sampled.bed
   cat ${call_set_path}.sampled.bed |
     bedtools slop -i stdin -g ${chromosome_sizes_directory}/${chromosome_sizes} -b ${variant_slop} \
     > ${call_set_path}.sampled.slopped.bed
 
-exit 1
   (grep ^"#" ${call_set_path}.vcf; (grep --invert-match ^"#" ${call_set_path}.vcf || true) \
     | sort --version-sort -k1,1 -k2,2) \
     > ${call_set_path}.sorted.vcf
