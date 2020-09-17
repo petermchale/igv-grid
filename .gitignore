@@ -20,3 +20,6 @@ simple_repeats*
 
 slurm-*.out
 debug.js
+
+*.log
+*.err
