@@ -3,7 +3,6 @@
 .browserslistrc
 .editorconfig
 
-http-server.*
 node_modules
 node
 assets
@@ -14,12 +13,12 @@ tracks.json
 reference.json
 callSets.json
 
-*.tmp
 __pycache__
 simple_repeats*
 
 slurm-*.out
 debug.js
 
+*.tmp
 *.log
 *.err

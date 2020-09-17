@@ -41,7 +41,7 @@ Installation successfully tested on Darwin x86_64 and Linux x86_64.
 Create thumbnails:
 
 ```
-./create-screenshots--build-webapp.sh
+nohup ./create-screenshots--build-webapp.sh > create-screenshots--build-webapp.log 2>&2 &
 ```
 
 Start web app:

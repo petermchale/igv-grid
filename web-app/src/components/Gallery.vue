@@ -83,16 +83,14 @@
       </v-carousel>
     </v-card>
 
-    <v-snackbar rounded="pill" v-model="snackbar">
+    <v-snackbar v-model="snackbar">
       Shareable URL copied to clipboard!
       <template v-slot:action="{ attrs }">
         <v-btn
-          color='error'
-          text
           v-bind="attrs"
           @click="snackbar = false"
         >
-          Close
+          <v-icon>mdi-close</v-icon>
         </v-btn>
       </template>
     </v-snackbar>
