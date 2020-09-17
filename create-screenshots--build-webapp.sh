@@ -13,7 +13,7 @@ PS4='+ (${BASH_SOURCE[0]##*/} @ ${LINENO}): ${FUNCNAME[0]:+${FUNCNAME[0]}(): }'
 
 port="9000" 
 number_thumbnails="20"
-variant_slop="250"
+variant_slop="500"
 headless_browser_wait_time="10000"
 
 root_directory="$PWD"
