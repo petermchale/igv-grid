@@ -118,17 +118,17 @@ ln --symbolic ${parent_directory}/reference.json ${createScreenshots_assets_dire
 # c.f., https://en.wikipedia.org/wiki/ANSI_escape_code
 # use node version 10 to avoid http-server error: 
 # https://github.com/http-party/http-server/issues/537
-node node_modules/http-server/bin/${server} -p ${port} > ${server}.log 2> ${server}.err &
+nohup node node_modules/http-server/bin/${server} -p ${port} > ${server}.log 2> ${server}.err &
 
 url="http://127.0.0.1:${port}/igv.html"
-node createThumbnails.js \
+nohup node createThumbnails.js \
   ${url} \
   ${webApp_assets_directory_absolute} \
   ${thumbnails_directory} \
   ${webApp_igv_directory_relative} \
   ${createScreenshots_assets_directory_relative} \
   ${createScreenshots_assets_directory_absolute} \
-  ${headless_browser_wait_time}
+  ${headless_browser_wait_time} > createThumbnails.log 2> createThumbnails.err 
 
 kill $(pgrep -f "${server}")
 
