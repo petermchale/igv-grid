@@ -121,7 +121,7 @@ ln --symbolic ${parent_directory}/reference.json ${createScreenshots_assets_dire
 nohup node node_modules/http-server/bin/${server} -p ${port} > ${server}.log 2> ${server}.err &
 
 url="http://127.0.0.1:${port}/igv.html"
-node createThumbnails.js \
+nohup node createThumbnails.js \
   ${url} \
   ${webApp_assets_directory_absolute} \
   ${thumbnails_directory} \
