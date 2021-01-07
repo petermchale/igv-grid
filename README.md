@@ -8,7 +8,8 @@ https://igv-grid.surge.sh/
 
 ## Applications 
 
-The app was developed to expedite the visual identification of features that differentiate true-positive from false-positive variant calls, such as soft-clipped reads and local sequence context. 
+The app was developed to expedite the visual identification of features that differentiate true-positive from false-positive variant calls,
+and true-positive from false-negative variant calls. 
 
 Aside from methods development, other possible applications may include: 
 * *Sample quality control*: identify samples that harbor unusual alignments
