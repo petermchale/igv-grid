@@ -69,7 +69,7 @@ the difficulties associated with
 creating screenshots from headless browsers. One solution is to use 
 a service to render thumbnails from the headless browser, e.g., [browserless](https://www.browserless.io/). 
 But a better solution is probably to replace the headless-browser approach 
-with a python tool for creating genomics thumbnails, [BamSnap](https://bamsnap.readthedocs.io/en/latest/). 
+with a python tool for creating genomics thumbnails: [BamSnap](https://bamsnap.readthedocs.io/en/latest/). 
 
 ## Acknowledgements
 
