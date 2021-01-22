@@ -5,6 +5,15 @@
 
       <v-spacer/>
 
+      <v-btn
+        text
+        class="text-none"
+        href="https://github.com/petermchale/igv-grid"
+        target="_blank"
+        >
+          GitHub
+      </v-btn>
+
       <v-menu
         transition="scale-transition"
         origin="top right"

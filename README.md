@@ -60,7 +60,14 @@ ssh -N -L localhost:8080:localhost:8080 username@host
 
 Alter `tracks.json` and `callSets.json` to point to the data you want to visualize. Customize `number_thumbnails` (number of thumbnails per call set) in `create-screenshots--build-webapp.sh`. 
 
+## Limitations 
+
 Another parameter in `create-screenshots--build-webapp.sh`, named `headless_browser_wait_time`, represents the length of time `puppeteer` will wait before taking a screenshot. I've occasionally needed to set this as large as 60000 (1min) to avoid producing incomplete thumbnails. 
+
+This limitation originates in the well-known difficulty of creating screenshots from headless browsers. One solution is to use 
+a service to render thumbnails from the headless browser, e.g., [browserless](https://www.browserless.io/). 
+But a better solution is probably to the headless-browser approach 
+and replace it with a python tool for creating genomics thumbnails, [BamSnap](https://bamsnap.readthedocs.io/en/latest/). 
 
 ## Acknowledgements
 
